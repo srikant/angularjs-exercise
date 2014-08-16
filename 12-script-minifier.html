@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="cusomersApp">
+	<head>
+		<title>
+			Script Minify
+		</title>
+		<link href="styles/styles.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div ng-controller="CustomersController">
+			<h2>Customers</h2>
+			FilterL <input type="text" ng-model="customerFilter.name">
+			<br><br>
+			<table>
+				<tr>
+					<td ng-click="doSort('name')">Name</td>
+					<td ng-click="doSort('city')">City</td>
+					<td ng-click="doSort('orderTotal')">Order Total</td>
+					<td ng-click="doSort('joined')">Joined</td>
+				</tr>
+				<tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse"><!-- limitTo:2 -->
+					<td>{{ cust.name | uppercase }}</td>
+					<td>{{ cust.city | lowercase }}</td>
+					<td>{{ cust.orderTotal | currency }}</td>
+					<td>{{ cust.joined | date }}</td> <!-- date: 'yyyy-MM-dd' 'medium'  'longDate' -->
+				</tr>
+			</table>
+			<br>
+			<span>Total customers: {{ customers.length }}</span>
+		</div>
+
+		<script src="scripts/angular.js" type="text/javascript"></script>
+		<script src="app/app.js"></script>
+		<script src="app/controllers/customersController.minifier.js"></script>
+	</body>
+</html>
