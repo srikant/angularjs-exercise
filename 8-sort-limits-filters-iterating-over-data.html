@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>
+			Sort Filters Iterating Over Data
+		</title>
+	</head>
+	<body>
+		<div ng-init="customers=[{joined: '2014-08-17', name: 'Srikant', city: 'Hyderabad', orderTotal: 9.9956},{joined: '2014-08-16', name: 'Rajni', city: 'Hyderabad', orderTotal: 19.9956},{joined: '2014-08-15', name: 'Uday', city: 'Hyderabad', orderTotal: 10.9956},{joined: '2014-08-14', name: 'Geetha', city: 'Hyderabad', orderTotal: 7.9956}]">
+			<h2>Customers</h2>
+			FilterL <input type="text" ng-model="customerFilter.name">
+			<br><br>
+			<table>
+				<tr>
+					<td ng-click="sortBy='name';reverse=!reverse">Name</td>
+					<td ng-click="sortBy='city';reverse=!reverse">City</td>
+					<td ng-click="sortBy='orderTotal';reverse=!reverse">Order Total</td>
+					<td ng-click="sortBy='joined';reverse=!reverse">Joined</td>
+				</tr>
+				<tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse"><!-- limitTo:2 -->
+					<td>{{ cust.name | uppercase }}</td>
+					<td>{{ cust.city | lowercase }}</td>
+					<td>{{ cust.orderTotal | currency }}</td>
+					<td>{{ cust.joined | date }}</td> <!-- date: 'yyyy-MM-dd' 'medium'  'longDate' -->
+				</tr>
+			</table>
+		</div>
+
+		<script src="angular.js" type="text/javascript"></script>
+	</body>
+</html>

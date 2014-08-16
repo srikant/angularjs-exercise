@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>
+			Using Directives
+		</title>
+	</head>
+	<body ng-init="name='Srikant'">
+		<div ng-hide="isHidden">
+			Name: <input type="text" ng-model="name" /> <span ng-bind="name"></span>
+		</div>
+
+		Hide: <input type="checkbox" ng-model="isHidden" />
+		<br>
+		<button ng-click="name='Dhondi'">Change Name</button>
+
+		<script src="angular.js" type="text/javascript"></script>
+	</body>
+</html>

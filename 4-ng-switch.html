@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app>
+
+  <head>
+    <title>ng-switch</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+	<!--
+		ng-switch
+		ng-switch-when
+		ng-switch-default
+		ng-init
+		ng-model
+		ng-app
+	-->
+  <body ng-init="option = '1'">
+    <h1>Hello Dhondi!</h1>
+    <input type="radio" name="mode" ng-model="option" value="1" />1<br />
+    <input type="radio" name="mode" ng-model="option" value="2" />2<br />
+    <input type="radio" name="mode" ng-model="option" value="3" />3<br />
+    <table>
+      <tr>
+        <td ng-switch="option">
+          <p ng-switch-when="1">NG-SWITCH-WHEN-1</p>
+          <p ng-switch-when="2">NG-SWITCH-WHEN-2</p>
+          <p ng-switch-default>NG-SWITCH-DEFAULT</p>
+        </td>
+      </tr>
+    </table>
+    <script src="angular.js" type="text/javascript"></script>
+  </body>
+
+</html>

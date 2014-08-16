@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<title>
+			More on Directives
+		</title>
+		<link href="styles.css" rel="stylesheet" type="text/css">
+		<script data-require="angular.js@1.2.13" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular.js"></script>
+	</head>
+	<!--
+		ng-cloak
+		ng-switch
+		ng-class
+		ng-show
+	-->
+	<body ng-init="data={name:'Srikant', isVisible: true, loggedIn: true, status: 'navy'}">
+		<div ng-cloak>
+			<div ng-switch on="data.loggedIn">
+				<div ng-switch-when="true" ng-class="data.status">
+					Welcome {{ data.name }}
+				</div>
+				<div ng-switch-default ng-class="data.status">Login</div>
+			</div>
+
+			<div ng-show="data.isVisible">
+				Name: <input type="text" ng-model="data.name" /> <span ng-bind="data.name"></span>
+			</div>
+		</div>
+
+	</body>
+</html>
